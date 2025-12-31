@@ -160,8 +160,29 @@ li{
     object-fit: contain;   /* 画像のアスペクト比を保ちながら収める */
     max-width: 90vw;      /* 画像の最大幅を画面幅に制限 */
     max-height: 100vh;  
-
 }
+.p-spty{
+    width: 100%;
+    border-radius: 0% !important;
+    margin: 0!important;
+    padding: 0!important;
+    position: fixed;
+    bottom: -15px;
+    z-index: 9999;
+}
+.spotify-wrapper {
+  border-radius: 0;       /* 親要素は角丸なし */
+  overflow: hidden;       /* iframeの角丸をマスク */
+  background-color: var(--blk);
+  color: var(--blk);
+  z-index: 9998;
+  position: fixed;
+  bottom: -15px;
+}
+.spotify-wrapper iframe {
+  border-radius: 0 !important;  /* 念のため */
+}
+
 .p-top-view{
     object-fit: cover;
     height: 100vh;
