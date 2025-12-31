@@ -126,7 +126,7 @@ li{
 .l-me{
     width: 100%;
     max-width: 900px;
-
+    position: relative;
     display: grid;
     margin: 0 auto;
     gap: 5%;
@@ -205,12 +205,11 @@ li{
 }
 
 .p-section{
-    
+    position: relative;
     margin: 0 auto;
     padding: 10%;
     padding-top: 20%;
     height: fit-content;
-    overflow: hidden;
 }
 .p-icon {
   max-width: 400px;
@@ -232,6 +231,7 @@ li{
   max-width: 900px;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
+  
 
   /* ===== サイズ ===== */
   --img1-w: 35%;
@@ -339,6 +339,16 @@ li{
 .u-bgb{
     background-color:var(--blk);
     color: var(--white);
+}
+.u-100clip{
+    
+  
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;         /* ★insetよりこっちの方が安定 */
+    overflow: hidden;
+    z-index: 10;
 }
 
 /* ===== VMボタン ===== */
@@ -515,7 +525,6 @@ li{
   margin: 0 auto;
   width: 100%;         /* 親に合わせる */
   max-width: 300px;    /* 画像の最大幅と同じに揃える */
-  text-align: center;  /* pを中央揃え */
 }
 
 .disc-item img {
@@ -524,7 +533,7 @@ li{
   object-fit: cover;
 }
 
-.disc-item p {
+.disc-item p, .disc-item span {
   margin-top: 0.5rem;
   font-size: 1rem;
   word-wrap: break-word; /* 長い単語でも折り返す */
