@@ -14,16 +14,16 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     logo1.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, fill: "forwards" });
     logo2.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 600, fill: "forwards" });
-  }, 1200);
+  }, 1800);
 
   // ③ ローディングをふわっと消す
   setTimeout(() => {
     loading.classList.add("is-hide");
     wrap.classList.add("is-show");
-  }, 2200);
+  }, 3200);
 
   // ④ 完全にDOMから削除
   setTimeout(() => {
     loading.remove();
-  }, 3200);
+  }, 4000);
 });
