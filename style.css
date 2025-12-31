@@ -410,4 +410,13 @@ li{
         padding-top: 80px; /* or 15vh */
         
     }
+    .p-spty{
+    width: 100%;
+    border-radius: 0% !important;
+    margin: 0!important;
+    padding: 0!important;
+    position: fixed;
+    bottom: -15px;
+    z-index: 9999;
+}
 }
