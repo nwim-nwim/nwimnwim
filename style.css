@@ -332,6 +332,50 @@ li{
     padding-bottom: 10%;
 }
 
+/* ===== loading全体 ===== */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: var(--white);
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+
+  transition: opacity 0.8s ease;
+}
+#loading.is-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 中央ロゴ */
+.loading-inner {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.loading-inner img {
+  position: absolute;
+  width: 160px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+#logo2 {
+  width: min(95vw, 900px);
+  height: auto;
+}
+
+/* 本編は最初ちょい薄く */
+#wrap {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+#wrap.is-show {
+  opacity: 1;
+}
+
 
 @media screen and (max-width:450px){
     .l-me h1,.l-me h2,.l-me h3,.l-me h4,.l-me h5,.l-me h6{

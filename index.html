@@ -20,7 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
 
-    <script src="js/speed.js" defer></script>
+    <script src="js/common.js" defer></script>
     <script>
     document.addEventListener("DOMContentLoaded", () => {
     const targets = document.querySelectorAll(".jsfadein");
@@ -59,7 +59,7 @@
 
 
 </head>
-<body class="p-content">
+<body class="p-content" id="app">
     <!--ul class="l-glo-nav">
         <li>top</li>
         <li>news</li>
@@ -68,67 +68,77 @@
         <li>works</li>
         <li></li>
     </ul-->
+    <!-- loading -->
+    <div id="loading">
+        <div class="loading-inner">
+        <img id="logo1" src="img/logo.png" alt="">
+        <img id="logo2" src="img/txt2.png" alt="">
+        </div>
+    </div>
     <div id="top"></div>
-    <header>
-        <a href="#top">
-        <img class="p-logo" src="img/logo.png" alt="">
-        </a>
-    </header>
-    <div class="l-top-view">
-        <img class=" p-copy jsfadein" src="img/txt.png"alt="">
-        <video class="p-top-view" loop muted autoplay playsinline >
-            <source src="mov/hero.mov" type="video/mp4">
-        </video>
-        <!--img class="p-top-view" src="img/nwi2.jpg" alt=""-->
-    </div>
-    <div class="l-hero"></div>
-    <div class="p-section u-bgb -pt20">
-        <div class="p-brgd-wrap">
-            <img class="p-brgd-img img-1 jsfadein" src="img/ab1.jpg">
-            <img class="p-brgd-img img-2 jsfadein" src="img/ab2.jpg">
-            <img class="p-brgd-txt jsfadein" src="img/about.png">
-            <img class="p-brgd-img img-3 jsfadein" src="img/nwi2.jpg">
+
+    <div id="wrap">
+        <header>
+            <a href="#top">
+            <img class="p-logo" src="img/logo.png" alt="">
+            </a>
+        </header>
+        <div class="l-top-view">
+            <img class=" p-copy jsfadein" src="img/txt.png"alt="">
+            <video class="p-top-view" loop muted autoplay playsinline >
+                <source src="mov/hero.mov" type="video/mp4">
+            </video>
+            <!--img class="p-top-view" src="img/nwi2.jpg" alt=""-->
         </div>
-        <div class="l-me">
-            <div class="p-icon">
-                <img src="img/DSCN5203.jpg" alt="">
+        <div class="l-hero"></div>
+        <div class="p-section u-bgb -pt20">
+            <div class="p-brgd-wrap">
+                <img class="p-brgd-img img-1 jsfadein" src="img/ab1.jpg">
+                <img class="p-brgd-img img-2 jsfadein" src="img/ab2.jpg">
+                <img class="p-brgd-txt jsfadein" src="img/about.png">
+                <img class="p-brgd-img img-3 jsfadein" src="img/nwi2.jpg">
             </div>
+            <div class="l-me">
+                <div class="p-icon">
+                    <img src="img/DSCN5203.jpg" alt="">
+                </div>
 
-            <div class="p-me-text -pb20">
-                <h2><strong>nwim</strong>
-                    <a href="https://www.instagram.com/_blonde.jpg?igsh=M21ic2c4bzNzcmRw&utm_source=qr" target="_blank" rel="noopener noreferrer">
-                        <img class="p-social" src="img/instagram.png" alt="">
-                    </a>
-                    <a href="https://hypeddit.com/vphb5o" target="_blank" rel="noopener noreferrer">
-                        <img class="p-social" src="img/spotify.png" alt="">
-                    </a>
-                </h2>
-                <p>
-                Producer/Beatmaker based in Tokyo, Japan.<br>
-                With a distinctive sensitivity for textures and emotional resonance,<br>
-                nwim crafts understated yet deeply immersive beats that blur the line between lo-fi, ambient, and experimental hip-hop.
+                <div class="p-me-text -pb20">
+                    <h2><strong>nwim</strong>
+                        <a href="https://www.instagram.com/_blonde.jpg?igsh=M21ic2c4bzNzcmRw&utm_source=qr" target="_blank" rel="noopener noreferrer">
+                            <img class="p-social" src="img/instagram.png" alt="">
+                        </a>
+                        <a href="https://hypeddit.com/vphb5o" target="_blank" rel="noopener noreferrer">
+                            <img class="p-social" src="img/spotify.png" alt="">
+                        </a>
+                    </h2>
+                    <p>
+                    Producer/Beatmaker based in Tokyo, Japan.<br>
+                    With a distinctive sensitivity for textures and emotional resonance,<br>
+                    nwim crafts understated yet deeply immersive beats that blur the line between lo-fi, ambient, and experimental hip-hop.
 
-                He has collaborated with baristas, rappers, and independent creators, <br>
-                sampling everyday sounds—like coffee roasters or urban field recordings—to weave sonic narratives.<br>
-                In 2025, he re-released his track “so what” featuring Tokyo-based rapper urak, which gained attention for its minimalism and refined sense of space.<br>
+                    He has collaborated with baristas, rappers, and independent creators, <br>
+                    sampling everyday sounds—like coffee roasters or urban field recordings—to weave sonic narratives.<br>
+                    In 2025, he re-released his track “so what” featuring Tokyo-based rapper urak, which gained attention for its minimalism and refined sense of space.<br>
 
-                Balancing raw imperfection and sonic depth, his work has quietly resonated with listeners beyond genre or trend.
-                </p>
+                    Balancing raw imperfection and sonic depth, his work has quietly resonated with listeners beyond genre or trend.
+                    </p>
+                </div>
             </div>
+        
         </div>
-       
-    </div>
-    <div class="p-section u-bgw">
-        <img class="p-sec-txt -pb20 jsfadein" src="img/sec-ttl-2.png">
-        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/5ztGFlY6BaLXnga0niqyg6?utm_source=generator&theme=0" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
+        <div class="p-section u-bgw">
+            <img class="p-sec-txt -pb20 jsfadein" src="img/sec-ttl-2.png">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/5ztGFlY6BaLXnga0niqyg6?utm_source=generator&theme=0" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
 
-    <!--div class="p-section u-bgb -pb20">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKKUqbczIGe/?igsh=MWx6eGtvNTJraWFuag==" data-instgrm-version="14" style=" background:#FFF; border:0; margin: 1px; max-width:540px; width:100%; padding:0; ">
-        </blockquote>
-    </div>-->
-    <footer class="p-footer">
-        <p><small>© nwim</small></p>
-    </footer>
+        <!--div class="p-section u-bgb -pb20">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKKUqbczIGe/?igsh=MWx6eGtvNTJraWFuag==" data-instgrm-version="14" style=" background:#FFF; border:0; margin: 1px; max-width:540px; width:100%; padding:0; ">
+            </blockquote>
+        </div>-->
+        <footer class="p-footer">
+            <p><small>© nwim</small></p>
+        </footer>
+    </div>
 </body>
 </html>
