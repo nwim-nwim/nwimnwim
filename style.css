@@ -634,3 +634,9 @@ li{
     z-index: 9999;
 }
 }
+/*フォールバック*/
+@media (prefers-reduced-motion: reduce) {
+  .p-top-view {
+    display: none;
+  }
+}

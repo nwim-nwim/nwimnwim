@@ -44,7 +44,11 @@ btn.addEventListener("click", () => {
     icon.classList.add("play");
   }
 });
+const video = document.querySelector('video');
 
+video.play().catch(() => {
+  // 再生できない環境用フォールバック
+});
 
 
 
