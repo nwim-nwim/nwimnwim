@@ -171,6 +171,7 @@ li{
     object-fit: contain;   /* 画像のアスペクト比を保ちながら収める */
     max-width: 90vw;      /* 画像の最大幅を画面幅に制限 */
     max-height: 100vh;  
+    z-index: 100000;
 }
 .p-spty{
     width: 100%;
