@@ -49,7 +49,14 @@ const video = document.querySelector('video');
 video.play().catch(() => {
   // 再生できない環境用フォールバック
 });
-
+const agent = window.navigator.userAgent.toLowerCase()
+		if (agent.indexOf("chrome") != -1) {
+		let video = document.getElementById('video');
+		video.play(); //自動再生
+		} else if (agent.indexOf("safari") != -1) {
+		const movie = document.getElementById("video");
+		movie.controls = false;  //（再生ボタン）controlsの非表示
+    }
 
 
 
