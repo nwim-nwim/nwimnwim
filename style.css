@@ -643,3 +643,6 @@ li{
 video::-webkit-media-controls {
   display: none !important;
 }
+.no-video .p-top-view {
+  display: none;
+}
