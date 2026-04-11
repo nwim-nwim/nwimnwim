@@ -49,12 +49,7 @@ const video = document.querySelector('video');
 video.play().catch(() => {
   // 再生できない環境用フォールバック
 });
-if (
-  navigator.userAgent.includes("Instagram") ||
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
-) {
-  document.documentElement.classList.add("no-video");
-}
+
 
 
 
