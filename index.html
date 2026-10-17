@@ -1,89 +1,117 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>nwim | Beatmaker from Tokyo</title>
+    <meta name="description"
+        content="nwim is a beatmaker based in Tokyo, Japan, blending lo-fi, ambient, and experimental hip-hop with emotional textures.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://nwim-nwim.github.io/nwimnwim/">
 
-     <!-- OGP -->
+    <!-- Favicon: temporarily reuse the existing site logo -->
+    <link rel="icon" href="/nwimnwim/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/nwimnwim/img/logo.png">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:site_name" content="nwim">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nwim-nwim.github.io/nwimnwim/">
     <meta property="og:title" content="nwim | Beatmaker from Tokyo">
-    <meta property="og:description" content="Producer/Beatmaker based in Tokyo, Japan. With a distinctive sensitivity for textures and emotional resonance, nwim crafts understated yet deeply immersive beats that blur the line between lo-fi, ambient, and experimental hip-hop.">
-    <meta property="og:image" content="img/nwi2.jpg">
+    <meta property="og:description"
+        content="Producer/Beatmaker based in Tokyo, Japan. With a distinctive sensitivity for textures and emotional resonance, nwim crafts understated yet deeply immersive beats that blur the line between lo-fi, ambient, and experimental hip-hop.">
+    <meta property="og:image" content="https://nwim-nwim.github.io/nwimnwim/img/nwi2.jpg">
+    <meta property="og:image:alt" content="nwim, beatmaker from Tokyo">
 
-    <meta name="description" content="Beatmaker based in Tokyo, Japan. Blending lo-fi, ambient, and experimental hip-hop with emotional textures.">
-
-
-    <!-- Twitter -->
+    <!-- X / Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="nwim | Beatmaker from Tokyo">
-    <meta name="twitter:description" content="Producer/Beatmaker based in Tokyo, Japan. With a distinctive sensitivity for textures and emotional resonance, nwim crafts understated yet deeply immersive beats that blur the line between lo-fi, ambient, and experimental hip-hop.">
-    <meta name="twitter:image" content="img/nwi2.jpg">
+    <meta name="twitter:description"
+        content="Producer/Beatmaker based in Tokyo, Japan. With a distinctive sensitivity for textures and emotional resonance, nwim crafts understated yet deeply immersive beats that blur the line between lo-fi, ambient, and experimental hip-hop.">
+    <meta name="twitter:image" content="https://nwim-nwim.github.io/nwimnwim/img/nwi2.jpg">
+
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+
     <script src="js/common.js" defer></script>
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-    const targets = document.querySelectorAll(".jsfadein");
+        document.addEventListener("DOMContentLoaded", () => {
+            const targets = document.querySelectorAll(".jsfadein");
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-        const el = entry.target;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const el = entry.target;
+                    const match = [...el.classList].find(c => /^jsfadein\d+$/.test(c));
 
-        // jsfadein01 の番号取得
-        const match = [...el.classList].find(c => /^jsfadein\d+$/.test(c));
+                    let delay = 0;
+                    if (match) {
+                        const num = Number(match.replace("jsfadein", ""));
+                        delay = num * 0.2;
+                    }
 
-        let delay = 0;
-        if (match) {
-            const num = Number(match.replace("jsfadein", ""));
-            delay = num * 0.2; // 秒数刻み（調整可）
-        }
+                    el.style.transitionDelay = `${delay}s`;
 
-        el.style.transitionDelay = `${delay}s`;
+                    if (entry.isIntersecting) {
+                        el.classList.add("is-show");
+                    } else {
+                        el.classList.remove("is-show");
+                    }
+                });
+            }, {
+                rootMargin: "0px 0px -10% 0px",
+                threshold: 0
+            });
 
-        if (entry.isIntersecting) {
-            el.classList.add("is-show");
-        } else {
-            el.classList.remove("is-show");
-        }
+            targets.forEach(el => observer.observe(el));
         });
-    }, {
-        rootMargin: "0px 0px -10% 0px",
-        threshold: 0
-    });
-
-    targets.forEach(el => observer.observe(el));
-    });
     </script>
-    <script async src="//www.instagram.com/embed.js"></script>
+    <script async src="https://www.instagram.com/embed.js"></script>
 
-    <!-- JSON-LD -->
+    <!-- Structured data: website name + artist profile -->
     <script type="application/ld+json">
     {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "nwim",
-    "jobTitle": "Producer / Beatmaker",
-    "url": "https://nwim-nwim.github.io/nwimnwim/",
-    "image": "https://nwim-nwim.github.io/nwimnwim/img/nwi2.jpg",
-    "sameAs": [
-        "https://www.instagram.com/_blonde.jpg",
-        "https://hypeddit.com/vphb5o"
-    ],
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Tokyo",
-        "addressCountry": "JP"
-    }
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://nwim-nwim.github.io/nwimnwim/#website",
+          "name": "nwim",
+          "alternateName": "nwim | Beatmaker from Tokyo",
+          "url": "https://nwim-nwim.github.io/nwimnwim/"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://nwim-nwim.github.io/nwimnwim/#person",
+          "name": "nwim",
+          "jobTitle": "Producer / Beatmaker",
+          "url": "https://nwim-nwim.github.io/nwimnwim/",
+          "image": "https://nwim-nwim.github.io/nwimnwim/img/nwi2.jpg",
+          "sameAs": [
+            "https://www.instagram.com/_blonde.jpg",
+            "https://hypeddit.com/vphb5o",
+            "https://open.spotify.com/artist/5ztGFlY6BaLXnga0niqyg6"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tokyo",
+            "addressCountry": "JP"
+          }
+        }
+      ]
     }
     </script>
 
-
-
-
 </head>
+
 <body class="p-content" id="app">
     <!--ul class="l-glo-nav">
         <li>top</li>
@@ -96,51 +124,70 @@
     <!-- loading -->
     <div id="loading">
         <div class="loading-inner">
-        <img id="logo1" src="img/logo.png" alt="nwim">
-        <img id="logo2" src="img/txt2.png" alt="Low fidelity,High feels. Makes lo-fi music.">
+            <img id="logo1" src="img/logo.png" alt="nwim">
+            <img id="logo2" src="img/txt2.png" alt="Low fidelity,High feels. Makes lo-fi music.">
         </div>
     </div>
     <div id="top"></div>
 
     <div id="wrap">
-        <header>
+        <header class="l-header">
             <a href="#top">
-            <img class="p-logo" src="img/logo.png" alt="nwim">
+                <img class="p-logo" id="headerLogo" src="img/logo.png" data-dark="img/logo.png"
+                    data-light="img/logo-white.png" alt="nwim">
             </a>
         </header>
-        <div class="l-top-view">
-            <img class=" p-copy" src="img/txt.png"alt="Low fidelity, High feels. Makes lo-fi music."> 
-            <video class="p-top-view" loop muted autoplay playsinline controls preload="metadata" poster="mov/hero.jpg">
-                <source src="mov/hero.mp4" type="video/mp4">
-            </video>
-            <!--img class="p-top-view" src="img/nwi2.jpg" alt=""-->
-        </div>
+        <section class="l-top-view" aria-label="nwim visual" data-logo-theme="light">
+            <div class="kv-triptych" aria-hidden="true">
+                <video class="kv-video" loop muted autoplay playsinline preload="metadata" poster="mov/hero.jpg">
+                    <source src="mov/hero.mp4" type="video/mp4">
+                </video>
+                <video class="kv-video" loop muted autoplay playsinline preload="metadata" poster="mov/hero.jpg">
+                    <source src="mov/hero.mp4" type="video/mp4">
+                </video>
+                <video class="kv-video" loop muted autoplay playsinline preload="metadata" poster="mov/hero.jpg">
+                    <source src="mov/hero.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="kv-overlay"></div>
+            <img class="p-copy" src="img/txt.png" alt="Low fidelity, High feels. Makes lo-fi music.">
+            <p class="kv-location">TOKYO&nbsp; / &nbsp;JP</p>
+        </section>
         <!--div class="spotify-wrapper">
             <iframe class="p-spty" data-testid="embed-iframe" src="https://open.spotify.com/embed/track/5gCSHi0ZQEdkO2GtdQEip9?utm_source=generator&theme=0" width="100%" height="95" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div-->
 
-        <!-- 右下カスタムボタン -->
-        <button id="playBtn" class="audio-btn">
-          <span class="icon play"></span>
-        </button>
+        <!-- Floating tape player -->
+        <aside class="tape-player" aria-label="nwim tape.4 player">
+            <img class="tape-cover" src="img/dg1.jpg" alt="nwim tape.4 cover">
+            <div class="tape-meta">
+                <span class="tape-title">nwim tape.4</span>
+                <span class="tape-artist">nwim</span>
+            </div>
+            <button id="playBtn" class="audio-btn" type="button" aria-label="音楽を再生" aria-pressed="false">
+                <span class="icon play" aria-hidden="true"></span>
+            </button>
+            <span class="tape-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        </aside>
 
 
 
         <!-- 音源 -->
         <audio id="audioPlayer" src="audio/audio1.wav" preload="auto" loop alt="nwim-tape4"></audio>
 
-        <div class="l-hero"></div>
+        <div class="l-hero" data-logo-theme="light"></div>
         <section class="l-about p-section u-bgb -np -pb0">
             <div class="u-100clip -np">
                 <div class="p-brgd-wrap">
                     <img class="p-brgd-img img-1 jsfadein" src="img/ab1.jpg" alt="">
                     <img class="p-brgd-img img-2 jsfadein" src="img/ab2.jpg" alt="">
                     <img class="p-brgd-txt jsfadein" src="img/about.png" alt="cozy grooves,late night moves.">
-                    <img class="p-brgd-img img-3 jsfadein" src="img/nwi2.jpg" alt="">
+                    <img class="p-brgd-img img-3 jsfadein" src="img/nwi2.jpg"
+                        alt="nwim, Tokyo-based beatmaker and music producer">
                 </div>
             </div>
         </section>
-        <section class="l-aboutme p-section u-bgb -pt0">
+        <section class="l-aboutme p-section u-bgb -pt0" data-logo-theme="light">
             <div class="l-me ">
                 <div class="p-icon">
                     <img src="img/DSCN5203.jpg" alt="">
@@ -148,40 +195,53 @@
 
                 <div class="p-me-text -pb20">
                     <h1><strong>nwim</strong>
-                        <a href="https://www.instagram.com/_blonde.jpg?igsh=M21ic2c4bzNzcmRw&utm_source=qr" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/_blonde.jpg?igsh=M21ic2c4bzNzcmRw&utm_source=qr"
+                            target="_blank" rel="noopener noreferrer">
                             <img class="p-social" src="img/instagram.png" alt="">
                         </a>
                         <a href="https://hypeddit.com/vphb5o" target="_blank" rel="noopener noreferrer">
                             <img class="p-social" src="img/spotify.png" alt="">
                         </a>
                     </h1>
-                    <p>
-                    Producer/Beatmaker based in Tokyo, Japan.<br>
-                    With a distinctive sensitivity for textures and emotional resonance,<br>
-                    nwim crafts understated yet deeply immersive beats that blur the line between lo-fi, ambient, and experimental hip-hop.
+                    <p><i>
+                            Producer/Beatmaker based in Tokyo, Japan.<br>
+                            With a distinctive sensitivity for textures and emotional resonance,<br>
+                            nwim crafts understated yet deeply immersive beats that blur the line between lo-fi,
+                            ambient,
+                            and experimental hip-hop.
 
-                    He has collaborated with baristas, rappers, and independent creators, <br>
-                    sampling everyday sounds—like coffee roasters or urban field recordings—to weave sonic narratives.<br>
-                    In 2025, he re-released his track “so what” featuring Tokyo-based rapper urak, which gained attention for its minimalism and refined sense of space.<br>
+                            He has collaborated with baristas, rappers, and independent creators, <br>
+                            sampling everyday sounds—like coffee roasters or urban field recordings—to weave sonic
+                            narratives.<br>
+                            In 2025, he re-released his track “so what” featuring Tokyo-based rapper urak, which gained
+                            attention for its minimalism and refined sense of space.<br>
 
-                    Balancing raw imperfection and sonic depth, his work has quietly resonated with listeners beyond genre or trend.
-                    <br>
-                </p>
+                            Balancing raw imperfection and sonic depth, his work has quietly resonated with listeners
+                            beyond
+                            genre or trend.
+                            <br>
+                        </i>
+                    </p>
 
                     <div class="p-vm -pt20">
-                        <a href="https://www.instagram.com/_blonde.jpg?igsh=M21ic2c4bzNzcmRw&utm_source=qr" class="vm-btn">
+                        <a href="https://www.instagram.com/_blonde.jpg?igsh=M21ic2c4bzNzcmRw&utm_source=qr"
+                            class="vm-btn">
                             <img src="img/vm_w.png" alt="詳しく見る">
                         </a>
                     </div>
                 </div>
-                
+
 
             </div>
         </section>
-        
-        <section class="l-listen p-section u-bgw">
+
+        <section class="l-listen p-section u-bgw" data-logo-theme="dark">
             <img class="p-sec-txt -pb20 jsfadein" src="img/sec-ttl-2.png">
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/5ztGFlY6BaLXnga0niqyg6?utm_source=generator&theme=0" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe data-testid="embed-iframe" style="border-radius:12px"
+                src="https://open.spotify.com/embed/artist/5ztGFlY6BaLXnga0niqyg6?utm_source=generator&theme=0"
+                width="100%" height="500" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
             <br>
             <div class="p-vm -b -pt20">
                 <a href="https://hypeddit.com/vphb5o" class="vm-btn -b">
@@ -194,37 +254,92 @@
             <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKKUqbczIGe/?igsh=MWx6eGtvNTJraWFuag==" data-instgrm-version="14" style=" background:#FFF; border:0; margin: 1px; max-width:540px; width:100%; padding:0; ">
             </blockquote>
         </div>-->
-        <section id="discography" class="l-discography p-section u-bgb -pb20 -pb20">
+        <section id="discography" class="l-discography p-section u-bgb -pb20 -pb20" data-logo-theme="light">
             <img class="p-sec-txt -pb20 jsfadein" src="img/sec-ttl-3.png">
             <div class="disc-grid">
                 <div class="disc-item">
-                    <a href="https://open.spotify.com/intl-ja/album/0R1CAzmJWH2aZNkKjGxWDD?si=A7lpwS8yTneVmqNFJS2Auw" target="_blank" rel="noopener noreferrer">
+                    <a href="https://open.spotify.com/intl-ja/album/0R1CAzmJWH2aZNkKjGxWDD?si=A7lpwS8yTneVmqNFJS2Auw"
+                        target="_blank" rel="noopener noreferrer">
                         <img src="img/dg2.jpg" alt="So What Alt Take var." class="jsfadein">
                         <span class="single">single</span>
                         <p>So What Alt Take var.</p>
                     </a>
                 </div>
                 <div class="disc-item">
-                    <a href="https://open.spotify.com/intl-ja/album/7pCZV3shMI1b9iZJKbhB0e?si=WDpeFbP3Qe2pWyo-fGxZ6g" target="_blank" rel="noopener noreferrer">
+                    <a href="https://open.spotify.com/intl-ja/album/7pCZV3shMI1b9iZJKbhB0e?si=WDpeFbP3Qe2pWyo-fGxZ6g"
+                        target="_blank" rel="noopener noreferrer">
                         <img src="img/dg1.jpg" alt="Still dreaming, Please don't let me know that" class="jsfadein">
                         <span class="EP">EP</span>
                         <p>Still dreaming, Please don't let me know that</p>
                     </a>
                 </div>
                 <!-- 他の作品も追加 -->
-                 <br><br>
-            </div>                
+                <br><br>
             </div>
-        </section>
-        <!--div class="p-backtotop u-bgb">
+    </div>
+    </section>
+    <!--div class="p-backtotop u-bgb">
         <a href="#top">
             <span class="arrow">&gt;</span> <br>BACK TO TOP
         </a>
         </div-->
 
-        <footer class="p-footer">
-            <p><small>© nwim</small></p>
-        </footer>
+    <footer class="p-footer">
+        <p><small>© nwim</small></p>
+    </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const logo = document.querySelector('#headerLogo');
+            const header = document.querySelector('.l-header');
+
+            if (!logo || !header) {
+                console.warn('ロゴまたはヘッダーが見つかりません');
+                return;
+            }
+
+            const darkLogo = logo.dataset.dark;
+            const whiteLogo = logo.dataset.light;
+
+            let currentTheme = '';
+
+            function updateLogo() {
+                const rect = header.getBoundingClientRect();
+
+                // ヘッダーの中央付近の、ロゴより少し下を判定する
+                const x = Math.min(
+                    window.innerWidth - 1,
+                    Math.max(1, rect.left + 30)
+                );
+                const y = Math.min(
+                    window.innerHeight - 1,
+                    Math.max(1, rect.bottom + 8)
+                );
+
+                // ヘッダー自身を避けて背後の要素を探す
+                header.style.visibility = 'hidden';
+                const elements = document.elementsFromPoint(x, y);
+                header.style.visibility = '';
+
+                const section = elements
+                    .map(el => el.closest('[data-logo-theme]'))
+                    .find(Boolean);
+
+                if (!section) return;
+
+                const theme = section.dataset.logoTheme;
+                if (theme === currentTheme) return;
+
+                currentTheme = theme;
+                logo.src = theme === 'light' ? whiteLogo : darkLogo;
+            }
+
+            window.addEventListener('scroll', updateLogo, { passive: true });
+            window.addEventListener('resize', updateLogo);
+            updateLogo();
+        });
+    </script>
 </body>
+
 </html>
