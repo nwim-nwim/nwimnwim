@@ -164,8 +164,25 @@ li {
   font-feature-settings: "palt";
 }
 
-.l-me h2 {
+.l-me h1 {
   margin-bottom: 1.5rem;
+  display: flex;
+  gap: 18px;
+  flex-direction: row;
+  align-items: baseline;
+  height: 40px;
+}
+
+.p-social {
+  vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 1.45rem;
+}
+
+.p-social img {
+  margin-top: 1rem;
 }
 
 .p-sec-txt {
@@ -360,12 +377,6 @@ li {
       calc(-50% + var(--txt-offset-y)));
   z-index: 3;
   pointer-events: none;
-}
-
-
-.p-social {
-  width: 30px;
-  vertical-align: middle;
 }
 
 .u-font-acumin {
@@ -700,6 +711,7 @@ li {
   .l-me h5,
   .l-me h6 {
     font-size: 25px;
+
   }
 
   .l-me p,
@@ -811,9 +823,11 @@ video::-webkit-media-controls {
   font-style: normal;
   z-index: 2;
 }
+
 #headerLogo {
   transition: opacity 0.25s ease;
 }
+
 .l-hero {
   height: 100vh;
 }
