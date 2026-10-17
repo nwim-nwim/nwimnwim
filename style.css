@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +8,7 @@
 :root {
   --white: #fffcf9;
   --blk: #1b1b1b;
+  --content-width: 935px;
 }
 
 html {
@@ -154,7 +154,7 @@ li {
 
 .l-me {
   width: 100%;
-  max-width: 900px;
+  max-width: var(--content-width);
   position: relative;
   display: grid;
   margin: 0 auto;
@@ -187,6 +187,7 @@ li {
 
 .p-sec-txt {
   width: 100%;
+  
 }
 
 .p-content {
@@ -269,9 +270,13 @@ li {
 .p-section {
   position: relative;
   margin: 0 auto;
-  padding: 10%;
+  padding: 1rem;
   padding-top: 20%;
   height: fit-content;
+}
+.p-section__inner{
+max-width: var(--content-width);
+margin-inline: auto;
 }
 
 .p-icon {
@@ -613,15 +618,15 @@ li {
   display: grid;
   gap: 2rem;
   justify-items: center;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 
 .disc-item {
   margin: 0 auto;
   width: 100%;
-  /* 親に合わせる */
-  max-width: 300px;
+  /* 親に合わせる 
+  max-width: 300px;*/
   /* 画像の最大幅と同じに揃える */
 }
 
